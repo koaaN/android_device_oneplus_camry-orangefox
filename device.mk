@@ -22,8 +22,7 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 
 PRODUCT_PACKAGES += \
     bootctrl.oneplus_sm6375.recovery \
-    android.hardware.boot@1.2-impl-qti.recovery \
-    android.hardware.health-V2-ndk
+    android.hardware.boot@1.2-impl-qti.recovery
 
 # Shipping API level
 BOARD_SHIPPING_API_LEVEL := 34
