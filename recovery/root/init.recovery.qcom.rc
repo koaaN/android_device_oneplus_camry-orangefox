@@ -32,6 +32,13 @@ on init
     # OS version and patch levels before starting KeyMint and Gatekeeper.
     setprop prepdecrypt.setpatch true
 
+# Vendor init cannot read the non-vendor crypto.ready property. Keep this
+# cross-namespace trigger in the root recovery RC and use Camry's AIDL service
+# names rather than qcom-common's legacy Keymaster/Gatekeeper names.
+on property:crypto.ready=1 && property:vendor.sys.listeners.registered=true
+    start vendor.keymint-qti
+    start vendor.gatekeeper_default
+
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
     wait /sys/bus/platform/devices/${ro.boot.usb.dwc3_msm:-a600000.ssusb}/mode
