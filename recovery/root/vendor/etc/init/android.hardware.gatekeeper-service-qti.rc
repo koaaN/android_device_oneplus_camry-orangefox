@@ -3,6 +3,10 @@ service vendor.gatekeeper_default /vendor/bin/hw/android.hardware.gatekeeper-ser
     user system
     group system
     disabled
+    seclabel u:r:recovery:s0
 
-# qcom_decrypt starts Gatekeeper together with KeyMint after prepdecrypt has
-# completed and the QSEE listener stack is ready.
+on property:crypto.ready=1 && property:vendor.sys.listeners.registered=true
+    start vendor.gatekeeper_default
+
+# Start Gatekeeper together with KeyMint after prepdecrypt has completed and
+# the QSEE listener stack is ready.

@@ -138,9 +138,9 @@ TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery.wipe
 PLATFORM_VERSION := 99.87.36
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 PLATFORM_SECURITY_PATCH := 2099-12-31
-# Keep the build-time vendor SPL aligned with the current CPH2621 OTA.
-# prepdecrypt replaces it at runtime when newer firmware is installed.
-VENDOR_SECURITY_PATCH := 2026-08-01
+# Keep the build-time vendor SPL compatible with the original OOS 16 baseline.
+# prepdecrypt replaces it at runtime with the installed firmware value.
+VENDOR_SECURITY_PATCH := 2026-06-01
 BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 TW_DEVICE_VERSION := OnePlus_CAMRY-A16
 

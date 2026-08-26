@@ -7,8 +7,12 @@ service vendor.keymint-qti /vendor/bin/hw/android.hardware.security.keymint-serv
     user system
     group system drmrpc
     disabled
+    seclabel u:r:recovery:s0
 
-# qcom_decrypt starts this service after prepdecrypt has replaced the
-# recovery OS version and security-patch properties with the installed
-# system/vendor values. Starting KeyMint during init can configure the TEE
-# with OrangeFox's synthetic build values before metadata decryption.
+on property:crypto.ready=1 && property:vendor.sys.listeners.registered=true
+    start vendor.keymint-qti
+
+# Start this service after prepdecrypt has replaced the recovery OS version
+# and security-patch properties with the installed system/vendor values.
+# Starting KeyMint during init can configure the TEE with OrangeFox's
+# synthetic build values before metadata decryption.
