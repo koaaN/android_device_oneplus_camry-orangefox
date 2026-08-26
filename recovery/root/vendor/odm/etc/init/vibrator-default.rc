@@ -42,7 +42,8 @@ on boot
 #endif /* OPLUS_FEATURE_CHG_BASIC */
 service vendor.oplus.vibrator /odm/bin/hw/vendor.oplus.hardware.vibrator-service
     class late_start
-    user system
-    group system input
+    user root
+    group root input
     setenv RICHTAP_DEVICE_PATH /dev/awinic_haptic
     setenv ENV_RICHTAP_CONFIG_PATH /odm/etc/aac_richtap.config
+    seclabel u:r:recovery:s0

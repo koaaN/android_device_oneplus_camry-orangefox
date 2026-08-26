@@ -49,4 +49,10 @@ on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
+# Recovery does not start Android's late_start class. Start the stock Oplus
+# vibrator HAL after TWRP has loaded the vendor modules and mounted the vendor
+# partitions, so input haptics do not block waiting for IVibrator/default.
+on property:twrp.modules.loaded=true
+    start vendor.oplus.vibrator
+
 import /init.recovery.qcom_decrypt.rc
