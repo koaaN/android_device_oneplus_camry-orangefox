@@ -29,3 +29,11 @@ Display | 1080 x 2400 pixels, 20:9 ratio, 6.67 inches, AMOLED 120Hz (~395 ppi de
 TWRP/OrangeFox (A14 branch)
 camry/CPH2621/OP5D49L1/OnePlus Nord CE4 Lite 5G
 Based on twrpdtgen tree + reference from twrp_device_oneplus_dodge
+
+## Decryption ABI note
+
+Recovery itself uses the C++ runtime built from the OrangeFox source tree.
+The Android 16 `libdmabufheap.so` prebuilt requires a newer libc++ symbol, so
+its stock system runtime is isolated as `libc++_16.so`: both that library's
+DT_SONAME and `libdmabufheap.so`'s DT_NEEDED entry have been changed to the
+new name. `libion.so` is taken from the stock Android 16 recovery ramdisk.

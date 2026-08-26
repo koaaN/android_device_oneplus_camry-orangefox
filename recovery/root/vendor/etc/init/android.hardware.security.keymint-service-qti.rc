@@ -2,10 +2,13 @@
 # All Rights Reserved.
 # Confidential and Proprietary - Qualcomm Technologies, Inc.
 
-on init
-    start vendor.keymint-qti
-
 service vendor.keymint-qti /vendor/bin/hw/android.hardware.security.keymint-service-qti
     class early_hal
     user system
     group system drmrpc
+    disabled
+
+# qcom_decrypt starts this service after prepdecrypt has replaced the
+# recovery OS version and security-patch properties with the installed
+# system/vendor values. Starting KeyMint during init can configure the TEE
+# with OrangeFox's synthetic build values before metadata decryption.

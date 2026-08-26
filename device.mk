@@ -52,7 +52,9 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
     $(DEVICE_PATH)/security/special_OTA
 
 # qcom decryption
-PRODUCT_PACKAGES_ENG += \
+# These modules install prepdecrypt and the generated Qualcomm service RC
+# files. Keep them in userdebug recovery builds as well as eng builds.
+PRODUCT_PACKAGES += \
     qcom_decrypt \
     qcom_decrypt_fbe
 
