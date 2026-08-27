@@ -35,7 +35,7 @@ cd sync
 cd ~/android/fox_14.1/device
 mkdir -p oneplus
 cd oneplus
-git clone --branch 16.0 https://github.com/koaaN/twrp_device_oneplus_camry.git camry
+git clone --branch 16.0 https://github.com/koaaN/android_device_oneplus_camry-orangefox.git camry
 ```
 
 ### Build
