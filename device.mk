@@ -83,3 +83,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 
 BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
+
+# OrangeFox-specific settings
+$(call inherit-product, $(DEVICE_PATH)/fox_camry.mk)
