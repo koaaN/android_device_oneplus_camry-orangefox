@@ -22,7 +22,7 @@
 /dtbo		emmc	/dev/block/bootdevice/by-name/dtbo				flags=slotselect;display="DTBO";flashimg=1
 
 # Userdata
-/data		f2fs	/dev/block/bootdevice/by-name/userdata			flags=display="Data";storage;wipeingui;cryptofooter
+/data		f2fs	/dev/block/bootdevice/by-name/userdata			flags=display="Data";storage;wipeingui
 /metadata	f2fs	/dev/block/bootdevice/by-name/metadata			flags=display="Metadata"
 
 # Modem/Firmware
