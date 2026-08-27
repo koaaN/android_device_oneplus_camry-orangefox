@@ -6,7 +6,7 @@
 - [x] Touch
 - [x] Decryption
 - [x] Vibration
-- [x] MTP/OTG Storage
+- [x] MTP
 - [x] ADB/FastbootD
 
 ## Untested
@@ -15,6 +15,7 @@
 - [ ] Backup & Restore
 - [ ] Factory Reset
 - [ ] Flashlight
+- [ ] USB OTG Storage
 - [ ] KernelSU, KernelSU Next & SukiSU Ultra Installer
 
 ## How to build
