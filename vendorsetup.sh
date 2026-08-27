@@ -27,5 +27,9 @@ if [ "$1" = "$FDEVICE" ] || [ "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     export LC_ALL="C"
     export FOX_AB_DEVICE=1
     export FOX_VIRTUAL_AB_DEVICE=1
+    export FOX_USE_DMSETUP=1
     export FOX_TARGET_DEVICES="CPH2621,OP5D49L1"
+    export FOX_ENABLE_KERNELSU_SUPPORT=1
+    export FOX_ENABLE_KERNELSU_NEXT_SUPPORT=1
+    export FOX_ENABLE_SUKISU_SUPPORT=1
 fi
